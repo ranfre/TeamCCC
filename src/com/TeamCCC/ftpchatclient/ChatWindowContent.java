@@ -1,4 +1,14 @@
-package com.TeamCCC.ftpchatclient.dummy;
+/**
+ * 
+ */
+package com.TeamCCC.ftpchatclient;
+
+/**
+ * @author Ben1
+ *
+ */
+
+//FIX
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,29 +22,26 @@ import java.util.Map;
  * TODO: Replace all uses of this class before publishing your app.
  */
 
-public class DummyContent {
+public class ChatWindowContent {
 
 	/**
 	 * An array of sample (dummy) items.
 	 */
-	public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+	public static List<ChatWindow> ITEMS = new ArrayList<ChatWindow>();
 
 	/**
 	 * A map of sample (dummy) items, by ID.
 	 */
-	public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+	public static Map<String, ChatWindow> ITEM_MAP = new HashMap<String, ChatWindow>();
 
 	static {
 		// Add 3 sample items.
-		addItem(new DummyItem("1", "Chad", 
-				"Contact"));
-		addItem(new DummyItem("2", "Brad", 
-				"Contact"));
-		addItem(new DummyItem("3", "File Browser", 
-				"File Browser"));
+		addItem(new ChatWindow("1", "Item 1"));
+		addItem(new ChatWindow("2", "Item 2"));
+		addItem(new ChatWindow("3", "Item 3"));
 	}
 
-	private static void addItem(DummyItem item) {
+	private static void addItem(ChatWindow item) {
 		ITEMS.add(item);
 		ITEM_MAP.put(item.id, item);
 	}
@@ -42,20 +49,18 @@ public class DummyContent {
 	/**
 	 * A dummy item representing a piece of content.
 	 */
-	public static class DummyItem {
+	public static class ChatWindow {
 		public String id;
-		public String name;
-		public String type;
+		public String content;
 
-		public DummyItem(String id, String name, String type) {
+		public ChatWindow(String id, String content) {
 			this.id = id;
-			this.name = name;
-			this.type = type;
+			this.content = content;
 		}
 
 		@Override
 		public String toString() {
-			return name;
+			return content;
 		}
 	}
 }
