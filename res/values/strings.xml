@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FTP Chat Client</string>
+    <string name="title_screen_detail">Screen Detail</string>
+
+</resources>
