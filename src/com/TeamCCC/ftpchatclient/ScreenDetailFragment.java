@@ -1,8 +1,10 @@
 package com.TeamCCC.ftpchatclient;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
+import android.widget.TextView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ public class ScreenDetailFragment extends Fragment {
 	 */
 	public static final String ARG_ITEM_ID = "item_id";
 	public static int REQUEST_SAVE = 0;
+	public View rootView;
 
 	/**
 	 * The dummy content this fragment is presenting.
@@ -52,9 +55,6 @@ public class ScreenDetailFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View rootView = inflater.inflate(R.layout.fragment_screen_detail,
-				container, false);
-		
 		if (mItem.id == "3") {
 			Intent intent = new Intent(getActivity(), FileDialog.class);
             //intent.putExtra(FileDialog.START_PATH, "/sdcard");
@@ -64,21 +64,44 @@ public class ScreenDetailFragment extends Fragment {
             
             //alternatively you can set file filter
             //intent.putExtra(FileDialog.FORMAT_FILTER, new String[] { "png" });
+			
+			rootView = inflater.inflate(R.layout.file_send_fragment_screen_detail,
+    				container, false);
+			
+			intent.putExtra(FileDialog.SELECTION_MODE, SelectionMode.MODE_OPEN);
             
-            startActivityForResult(intent, REQUEST_SAVE);
+            startActivityForResult(intent, 1);
+            
+            
+            
+            
 		}
 		
 		else{
 			
+			rootView = inflater.inflate(R.layout.file_send_fragment_screen_detail,
+    				container, false);
 	
 			// Show the dummy content as text in a TextView.
 			if (mItem != null) {
-				((WebView) rootView.findViewById(R.id.screen_detail))
-						.loadUrl(mItem.type);
+				((TextView) rootView.findViewById(R.id.textViewNameSend))
+					.setText(mItem.name);
 			}
 			
 		}
 		
 		return rootView;
 	}
+	
+	public void onActivityResult(int requestCode, int resultCode,
+            Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+            	String Path = data.getStringExtra(FileDialog.RESULT_PATH);
+            	((TextView) rootView.findViewById(R.id.textViewFileSend))
+    			.setText(Path);
+            }
+        }
+    }
 }

@@ -37,8 +37,11 @@ public final class R {
         public static final int screen_detail=0x7f070002;
         public static final int screen_detail_container=0x7f070000;
         public static final int screen_list=0x7f070001;
-        public static final int textView1=0x7f070003;
+        public static final int textView1=0x7f070013;
+        public static final int textView2=0x7f070014;
+        public static final int textViewFileSend=0x7f070003;
         public static final int textViewFilename=0x7f07000c;
+        public static final int textViewNameSend=0x7f070015;
     }
     public static final class layout {
         public static final int activity_screen_detail=0x7f030000;
@@ -62,7 +65,8 @@ public final class R {
         public static final int chat_window_fragment_screen_detail=0x7f030003;
         public static final int file_dialog_main=0x7f030004;
         public static final int file_dialog_row=0x7f030005;
-        public static final int fragment_screen_detail=0x7f030006;
+        public static final int file_send_fragment_screen_detail=0x7f030006;
+        public static final int fragment_screen_detail=0x7f030007;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
